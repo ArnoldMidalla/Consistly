@@ -1,103 +1,150 @@
-import Image from "next/image";
+"use client";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import React from "react";
+import * as motion from "motion/react-client";
+import { Footprints, Sprout, TrendingUp } from "lucide-react";
+import Title from "./components/title";
+import Steps from "./components/steps";
 
 export default function Home() {
+  let [habitNo, setHabitNo] = React.useState(0);
+  function add() {
+    if (habitNo < 50) {
+      setHabitNo(habitNo + 1);
+    }
+  }
+  function minus() {
+    if (habitNo > 0) {
+      setHabitNo((prev) => prev - 1);
+    }
+  }
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      <section className="font-sans pt-16 flex flex-col items-center justify-center text-center min-h-screen gap-5 text-[#263d3c] bg-[#f3f3f0]">
+        <h1 className="text-5xl font-bold leading-11 tracking-tight">
+          Build better habits
+          <br />
+          <span className="opacity-70">One day at a time</span>
+        </h1>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        {/* <div>
+          <p>Clock how easy it is to make habits here</p>
+          <div>
+            <button onClick={minus}>-</button>
+            {habitNo} habit{(habitNo > 0 && habitNo < 2)? '' : 's'} made
+            <button onClick={add}>+</button>
+          </div>
+        </div> */}
+        <p className="leading-5 font-medium">
+          HabitFlow helps you stay consistent with streaks, insights,
+          <br />
+          and motivation — so you can finally stick to your goals.
+        </p>
+        <div className="flex gap-4">
+          <Button className="bg-[#ffffff] text-[#263d3c] px-[20px] h-[40px] rounded-md flex justify-center items-center font-bold">
+            Get Started Free &gt;
+          </Button>
+          <Button className="bg-[#263d3c] text-white px-[20px] h-[40px] rounded-md flex justify-center items-center font-bold">
+            See Pricing
+          </Button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+      </section>
+      <section className="px-10 sm:px-30 py-16 text-[#263d3c] bg-white gap-3 font-sans">
+        <Title
+          text="Our Features"
+          title="Why HabitFlow works"
+          subtitle="Simple tools that make habits stick."
+        />
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 font-bold mt-3">
+          {/* <!-- Top row --> */}
+          <div className="bg-[#f3f3f0] p-6 flex flex-col rounded-md">
+            <TrendingUp
+              className="p-2 rounded-md scale-90 border-2 border-[#263d3c]"
+              size={40}
+            />
+            <h1 className="pt-2">Track Anything</h1>
+            <p className="text-sm font-medium opacity-80">
+              Create daily, weekly, or monthly habits with flexible reminders.
+            </p>
+          </div>
+          <div className="bg-[#f3f3f0] p-6 flex flex-col rounded-md">
+            <Footprints
+              className="p-2 rounded-md scale-90 border-2 border-[#263d3c]"
+              size={40}
+            />
+            <h1 className="pt-2">Stay Motivated</h1>
+            <p className="text-sm font-medium opacity-80">
+              Build streaks, celebrate wins, and keep your momentum going.
+            </p>
+          </div>
+          <div className="bg-[#f3f3f0] p-6 flex flex-col rounded-md">
+            <Sprout
+              className="p-2 rounded-md scale-90 border-2 border-[#263d3c]"
+              size={40}
+            />
+            <h1 className="pt-2">See Your Growth</h1>
+            <p className="text-sm font-medium opacity-80">
+              Visual dashboards and insights that keep you accountable.
+            </p>
+          </div>
+          {/* <!-- Bottom row -->
+          <div className="bg-blue-400 p-6 ">4</div>
+          <div className="bg-blue-400 p-6  col-span-2">5</div> */}
+        </div>
+      </section>
+      <section className="px-10 sm:px-30 py-16 bg-[#263d3c] text-white gap-3 font-sans">
+        <Title
+          text="How it Works"
+          title="Build habits in 3 simple steps"
+          subtitle="No fluff. Just focus and consistency."
+        />
+        {/* <div className="grid grid-cols-2 grid-rows-3 text-[#263d3c]">
+          <div className="bg-[#f3f3f0] w-30 h-30 flex justify-center items-center font-bold text-3xl">1</div>
+          <div className="text-right bg-[#f3f3f0] flex flex-col justify-center items-center h-30 w-90">
+            <div>
+
+            <h1 className="text-xl font-bold">Create a Habit</h1>
+            <p>Define your goal and set a schedule.</p>
+            </div>
+          </div>
+          <div className="">
+            <h1>Check It Off Daily</h1>
+            <p>Mark habits as done, build streaks</p>
+          </div>
+          <div className="">2</div>
+          <div className="">3</div>
+          <div className="">
+            <h1>Review Progress</h1>
+            <p>Get charts and insights to improve</p>
+          </div>
+        </div> */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 font-bold mt-3">
+          <Steps
+            number={1}
+            title="Create a Habit"
+            subtitle="Define your goal and set a schedule."
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+          <Steps
+            number={2}
+            title="Check It Off Daily"
+            subtitle="Mark habits as done, build streaks."
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
+          <Steps
+            number={3}
+            title="Review Progress"
+            subtitle="Get charts and insights to improve."
           />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        </div>
+      </section>
+      <section className="font-sans">
+        <Title
+          text="Pricing"
+          title="Start free. Upgrade anytime."
+          subtitle="Pick a plan that grows with you."
+        />
+      </section>
+    </>
   );
 }
