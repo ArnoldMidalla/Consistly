@@ -27,10 +27,10 @@ export default function SignupPage() {
       >
         <div className="flex flex-col">
           <h1 className="text-3xl font-extrabold tracking-tight">
-            Get Started
+            Start building better habits today.
           </h1>
           <p className="text-sm font-medium text-[#263d3ccc]">
-            Enter your details below to get started
+            It only takes 30 seconds to set up your first habit.
           </p>
         </div>
 

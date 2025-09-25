@@ -1,8 +1,5 @@
-import type { Metadata } from "next";
+import Navbar from "../components/navbar";
 import { Geist, Geist_Mono, DM_Sans } from "next/font/google";
-import "./globals.css";
-import ClientToaster from "./components/clientToaster";
-import Footer from "./components/footer";
 
 const geistSans = DM_Sans({
   variable: "--font-geist-sans",
@@ -14,11 +11,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Consistly",
-  description: "Build better habits. One day at a time.",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -26,12 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <Navbar />
         {children}
-        <ClientToaster/>
-        <Footer/>
       </body>
     </html>
   );

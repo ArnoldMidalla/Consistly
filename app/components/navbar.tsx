@@ -6,9 +6,9 @@ export default async function Navbar() {
   const supabase = await createClient();
 
   const { data, error } = await supabase.auth.getUser();
-  const user = data.user?.user_metadata
+  const user = data.user?.user_metadata;
   return (
-    <section className="flex fixed h-16 items-center justify-center w-full bg-[#f3f3f0]/20 backdrop-blur-lg z-40">
+    <section className="flex fixed h-16 items-center justify-center w-full bg-[#f3f3f0]/20 backdrop-blur-lg z-40 border-b-2">
       <div>
         <Link href="/">One</Link>
       </div>

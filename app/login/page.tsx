@@ -29,10 +29,10 @@ export default function LoginPage() {
       >
         <div className="flex flex-col">
           <h1 className="text-3xl font-extrabold tracking-tight">
-            Welcome back
+            Welcome back.
           </h1>
           <p className="text-sm font-medium text-[#263d3ccc]">
-            Enter your email and password to access your account
+            Log in to continue your streaks and stay consistent.
           </p>
         </div>
         <div className="w-full flex flex-col gap-2">

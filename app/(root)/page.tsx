@@ -4,9 +4,9 @@ import Link from "next/link";
 // import React from "react";
 import * as motion from "motion/react-client";
 import { Footprints, Sprout, TrendingUp } from "lucide-react";
-import Title from "./components/title";
-import Steps from "./components/steps";
-import Footer from "./components/footer";
+import Title from "../components/title";
+import Steps from "../components/steps";
+import Footer from "../components/footer";
 
 export default function Home() {
   // let [habitNo, setHabitNo] = React.useState(0);
@@ -56,37 +56,43 @@ export default function Home() {
             <button onClick={add}>+</button>
           </div>
         </div> */}
-        <motion.p 
-            initial={{ opacity: 0, translateY: 15 }}
-            animate={{ opacity: 1, translateY: 0 }}
-            transition={{
-              duration: 0.4,
-              delay: 0.8,
-              scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
-            }} className="leading-5 font-medium">
+        <motion.p
+          initial={{ opacity: 0, translateY: 15 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          transition={{
+            duration: 0.4,
+            delay: 0.8,
+            scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
+          }}
+          className="leading-5 font-medium"
+        >
           HabitFlow helps you stay consistent with streaks, insights,
           <br />
           and motivation — so you can finally stick to your goals.
         </motion.p>
         <div className="flex gap-4">
-          <motion.button  
+          <motion.button
             initial={{ opacity: 0, translateY: 15 }}
             animate={{ opacity: 1, translateY: 0 }}
             transition={{
               duration: 0.4,
               delay: 1.2,
               scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
-            }} className="bg-[#ffffff] text-sm text-[#263d3c] px-[18px] py-2 rounded-md flex justify-center items-center font-bold">
+            }}
+            className="bg-[#ffffff] text-sm text-[#263d3c] px-[18px] py-2 rounded-md flex justify-center items-center font-bold"
+          >
             Get Started Free &gt;
           </motion.button>
-          <motion.button 
+          <motion.button
             initial={{ opacity: 0, translateY: 15 }}
             animate={{ opacity: 1, translateY: 0 }}
             transition={{
               duration: 0.4,
               delay: 1.6,
               scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
-            }}  className="bg-[#263d3c] text-sm text-white px-[18px] py-2 rounded-md flex justify-center items-center font-bold">
+            }}
+            className="bg-[#263d3c] text-sm text-white px-[18px] py-2 rounded-md flex justify-center items-center font-bold"
+          >
             See Pricing
           </motion.button>
         </div>
@@ -186,7 +192,6 @@ export default function Home() {
           subtitle="Pick a plan that grows with you."
         />
       </section>
-      <Footer/>
     </>
   );
 }
