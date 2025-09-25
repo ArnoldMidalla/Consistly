@@ -1,10 +1,25 @@
+'use client'
+
 import { Button } from "@/components/ui/button";
 import { signup } from "../login/actions";
 import Link from "next/link";
+import { toast } from "sonner";
 
 export default function SignupPage() {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  const formData = new FormData(e.currentTarget);
+  const result = await signup(formData);
+
+  if (result.success) {
+    toast.success("Confirm your email address");
+    // window.location.href = "/login";
+  } else {
+    toast.error(result.message || "Something went wrong");
+  }
+};
   return (
-    <form className="font-sans pt-16 flex flex-col items-center justify-center text-center min-h-screen gap-2 text-[#263d3c] bg-[#f3f3f0]">
+    <form onSubmit={handleSubmit} className="font-sans pt-16 flex flex-col items-center justify-center text-center min-h-screen gap-2 text-[#263d3c] bg-[#f3f3f0]">
       <h1 className="text-5xl font-bold leading-11 tracking-tight">Sign Up</h1>
 
       <div className="flex gap-4 items-center">
@@ -53,7 +68,8 @@ export default function SignupPage() {
 
       <Button
         className="bg-[#263d3c] text-white px-[20px] h-[40px] rounded-md flex justify-center items-center font-bold"
-        formAction={signup}
+        // formAction={signup}
+        type="submit"
       >
         Sign up
       </Button>

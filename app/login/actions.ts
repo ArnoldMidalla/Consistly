@@ -47,6 +47,7 @@
 //   redirect('/')
 // }
 
+// server actions
 'use server'
 
 import { revalidatePath } from 'next/cache'
@@ -63,12 +64,12 @@ export async function login(formData: FormData) {
 
   const { error } = await supabase.auth.signInWithPassword(data)
 
-//   if (error) redirect('/error')
-if (error) throw new Error(error.message) // instead of redirect
-
+  if (error) {
+    return { success: false, message: error.message }
+  }
 
   revalidatePath('/', 'layout')
-  redirect('/')
+  return { success: true }
 }
 
 export async function signup(formData: FormData) {
@@ -83,15 +84,14 @@ export async function signup(formData: FormData) {
     email,
     password,
     options: {
-      data: {
-        firstName,
-        lastName,
-      },
+      data: { firstName, lastName },
     },
   })
 
-  if (error) redirect('/error')
+  if (error) {
+    return { success: false, message: error.message }
+  }
 
   revalidatePath('/', 'layout')
-  redirect('/')
+  return { success: true, }
 }
