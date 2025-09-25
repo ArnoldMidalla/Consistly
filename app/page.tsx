@@ -1,32 +1,52 @@
-"use client";
+// "use client";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import React from "react";
+// import React from "react";
 import * as motion from "motion/react-client";
 import { Footprints, Sprout, TrendingUp } from "lucide-react";
 import Title from "./components/title";
 import Steps from "./components/steps";
+import Footer from "./components/footer";
 
 export default function Home() {
-  let [habitNo, setHabitNo] = React.useState(0);
-  function add() {
-    if (habitNo < 50) {
-      setHabitNo(habitNo + 1);
-    }
-  }
-  function minus() {
-    if (habitNo > 0) {
-      setHabitNo((prev) => prev - 1);
-    }
-  }
+  // let [habitNo, setHabitNo] = React.useState(0);
+  // function add() {
+  //   if (habitNo < 50) {
+  //     setHabitNo(habitNo + 1);
+  //   }
+  // }
+  // function minus() {
+  //   if (habitNo > 0) {
+  //     setHabitNo((prev) => prev - 1);
+  //   }
+  // }
   return (
     <>
       <section className="font-sans pt-16 flex flex-col items-center justify-center text-center min-h-screen gap-5 text-[#263d3c] bg-[#f3f3f0]">
-        <h1 className="text-5xl font-bold leading-11 tracking-tight">
-          Build better habits
-          <br />
-          <span className="opacity-70">One day at a time</span>
-        </h1>
+        <div className="text-5xl font-bold leading-11 tracking-tight flex flex-col">
+          <motion.h1
+            initial={{ opacity: 0, translateY: 15 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            transition={{
+              duration: 0.4,
+              scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
+            }}
+          >
+            Build better habits
+          </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, translateY: 15 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            transition={{
+              duration: 0.4,
+              delay: 0.4,
+              scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
+            }}
+            className="text-[#263d3ccc]"
+          >
+            One day at a time
+          </motion.h1>
+        </div>
 
         {/* <div>
           <p>Clock how easy it is to make habits here</p>
@@ -36,18 +56,39 @@ export default function Home() {
             <button onClick={add}>+</button>
           </div>
         </div> */}
-        <p className="leading-5 font-medium">
+        <motion.p 
+            initial={{ opacity: 0, translateY: 15 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            transition={{
+              duration: 0.4,
+              delay: 0.8,
+              scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
+            }} className="leading-5 font-medium">
           HabitFlow helps you stay consistent with streaks, insights,
           <br />
           and motivation — so you can finally stick to your goals.
-        </p>
+        </motion.p>
         <div className="flex gap-4">
-          <Button className="bg-[#ffffff] text-[#263d3c] px-[20px] h-[40px] rounded-md flex justify-center items-center font-bold">
+          <motion.button  
+            initial={{ opacity: 0, translateY: 15 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            transition={{
+              duration: 0.4,
+              delay: 1.2,
+              scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
+            }} className="bg-[#ffffff] text-sm text-[#263d3c] px-[18px] py-2 rounded-md flex justify-center items-center font-bold">
             Get Started Free &gt;
-          </Button>
-          <Button className="bg-[#263d3c] text-white px-[20px] h-[40px] rounded-md flex justify-center items-center font-bold">
+          </motion.button>
+          <motion.button 
+            initial={{ opacity: 0, translateY: 15 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            transition={{
+              duration: 0.4,
+              delay: 1.6,
+              scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
+            }}  className="bg-[#263d3c] text-sm text-white px-[18px] py-2 rounded-md flex justify-center items-center font-bold">
             See Pricing
-          </Button>
+          </motion.button>
         </div>
       </section>
       <section className="px-10 sm:px-30 py-16 text-[#263d3c] bg-white gap-3 font-sans">
@@ -145,6 +186,7 @@ export default function Home() {
           subtitle="Pick a plan that grows with you."
         />
       </section>
+      <Footer/>
     </>
   );
 }

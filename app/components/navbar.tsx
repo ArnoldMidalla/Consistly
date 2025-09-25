@@ -1,26 +1,22 @@
-"use client";
-import { useState } from "react";
-import { motion, Transition } from "motion/react";
-
 import Link from "next/link";
+import { createClient } from "@/utils/supabase/server";
+import DarkModeButton from "@/app/components/darkModeButton";
 
-export default function Navbar() {
-  const [darkMode, setDarkMode] = useState(false);
-  function toggle() {
-    setDarkMode(!darkMode);
-    document.body.classList.toggle("dark");
-  }
+export default async function Navbar() {
+  const supabase = await createClient();
+
+  const { data, error } = await supabase.auth.getUser();
+  const user = data.user?.user_metadata
   return (
-    <section className="flex absolute top-0 h-16 items-center justify-center w-full bg-[#f3f3f0]/40 backdrop-blur-md">
+    <section className="flex fixed h-16 items-center justify-center w-full bg-[#f3f3f0]/20 backdrop-blur-lg z-40">
       <div>
         <Link href="/">One</Link>
       </div>
       <div>
         <Link href="/">Two</Link>
       </div>
-      <button onClick={toggle}>
-        Switch to {!darkMode ? "dark" : "light"}mode
-      </button>
+      welcome {user?.firstName + " " + user?.lastName}
+      {/* <DarkModeButton/> */}
     </section>
   );
 }

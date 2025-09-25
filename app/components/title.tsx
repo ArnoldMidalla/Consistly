@@ -10,7 +10,7 @@ export default function Title({text, title, subtitle} : {text :string, title:str
           <h1 className="text-center font-extrabold text-3xl tracking-tight leading-9">
             {title}
           </h1>
-          <p className="text-center text-sm font-medium opacity-80">
+          <p className="text-center text-sm font-medium text-[#263d3ccc]">
             {subtitle}
           </p>
         </div>
