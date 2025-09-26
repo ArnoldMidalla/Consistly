@@ -28,7 +28,7 @@ export default function LoginPage() {
         onSubmit={handleSubmit} // <-- changed here
       >
         <div className="flex flex-col">
-          <h1 className="text-3xl font-extrabold tracking-tight">
+          <h1 className="text-3xl font-extrabold tracking-tighter">
             Welcome back.
           </h1>
           <p className="text-sm font-medium text-[#263d3ccc]">

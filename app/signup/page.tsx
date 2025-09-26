@@ -26,8 +26,8 @@ export default function SignupPage() {
         onSubmit={handleSubmit} // <-- consistent with login
       >
         <div className="flex flex-col">
-          <h1 className="text-3xl font-extrabold tracking-tight">
-            Start building better habits today.
+          <h1 className="text-3xl font-extrabold tracking-tighter">
+            Start building better<br/>habits today.
           </h1>
           <p className="text-sm font-medium text-[#263d3ccc]">
             It only takes 30 seconds to set up your first habit.
