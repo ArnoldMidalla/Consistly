@@ -70,32 +70,29 @@ export default function Home() {
           <br />
           and motivation — so you can finally stick to your goals.
         </motion.p>
-        <div className="flex gap-4">
-          <motion.button
-            initial={{ opacity: 0, translateY: 15 }}
-            animate={{ opacity: 1, translateY: 0 }}
-            transition={{
-              duration: 0.4,
-              delay: 1.2,
-              scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
-            }}
+        <motion.div
+          className="flex gap-4"
+          initial={{ opacity: 0, translateY: 15 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          transition={{
+            duration: 0.4,
+            delay: 1.2,
+            scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
+          }}
+        >
+          <Link
+            href="/signup"
             className="bg-[#ffffff] text-sm text-[#263d3c] px-[18px] py-2 rounded-md flex justify-center items-center font-bold"
           >
             Get Started Free &gt;
-          </motion.button>
-          <motion.button
-            initial={{ opacity: 0, translateY: 15 }}
-            animate={{ opacity: 1, translateY: 0 }}
-            transition={{
-              duration: 0.4,
-              delay: 1.6,
-              scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
-            }}
+          </Link>
+          <Link
+            href="/"
             className="bg-[#263d3c] text-sm text-white px-[18px] py-2 rounded-md flex justify-center items-center font-bold"
           >
             See Pricing
-          </motion.button>
-        </div>
+          </Link>
+        </motion.div>
       </section>
       <section className="px-10 sm:px-30 py-16 text-[#263d3c] bg-white gap-3 font-sans">
         <Title

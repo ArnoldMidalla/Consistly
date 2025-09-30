@@ -42,7 +42,8 @@ export async function updateSession(request: NextRequest) {
   !request.nextUrl.pathname.startsWith('/login') &&
   !request.nextUrl.pathname.startsWith('/signup') &&  // allow signup
   !request.nextUrl.pathname.startsWith('/about') &&   // example public page
-  !request.nextUrl.pathname.startsWith('/error')
+  !request.nextUrl.pathname.startsWith('/error') &&
+  !request.nextUrl.pathname.startsWith('/')
 ) {
   const url = request.nextUrl.clone()
   url.pathname = '/login'

@@ -42,7 +42,36 @@ export default async function Dashboard() {
       time: "10:00",
       location: "abuja",
     },
+    {
+      id: 4,
+      title: "Meditate",
+      description: "10 minutes mindfulness",
+      time: "10:00",
+      location: "abuja",
+    },
   ];
+
+  const suggest = [
+    {
+      id: 1,
+      title: "Exercise",
+      description: "30 min workout daily",
+      time: "10:00",
+      location: "abuja",
+    },{
+      id: 2,
+      title: "Exercise",
+      description: "30 min workout daily",
+      time: "10:00",
+      location: "abuja",
+    },{
+      id: 3,
+      title: "Exercise",
+      description: "30 min workout daily",
+      time: "10:00",
+      location: "abuja",
+    },
+  ]
 
   return (
     <section className="min-h-screen font-sans flex p-12 gap-8">
@@ -63,7 +92,7 @@ export default async function Dashboard() {
             </Button>
           </div>
           <div>
-            <Lottie/>
+            <Lottie />
           </div>
           <StreakCa />
         </div>
@@ -80,6 +109,27 @@ export default async function Dashboard() {
           </div>
           <Weather />
         </div>
+        <div>
+          <div className="text-sm items-center flex justify-between">
+            <p className="text-lg font-semibold tracking-tight">
+              Today's Todos
+            </p>
+            <Link href="" className="opacity-80">
+              More details
+            </Link>
+          </div>
+          <div className="flex flex-col gap-2">
+            {habits.map((habit) => (
+              <HabitCard
+                key={habit.id}
+                title={habit.title}
+                description={habit.description}
+                time={habit.time}
+                location={habit.location}
+              />
+            ))}
+          </div>
+        </div>
       </section>
       <section className="w-1/2 min-h-full flex flex-col ">
         <section className="h-fit flex gap-8">
@@ -95,19 +145,19 @@ export default async function Dashboard() {
               </div>
               {/* <Weather /> */}
               <div className="flex flex-col gap-2">
-                {habits.map((habit) => (
+                {habits.slice(0, 3).map((suggest) => (
                   <HabitCard
-                    key={habit.id}
-                    title={habit.title}
-                    description={habit.description}
-                    time={habit.time}
-                    location={habit.location}
+                    key={suggest.id}
+                    title={suggest.title}
+                    description={suggest.description}
+                    // time={suggest.time}
+                    // location={suggest.location}
                   />
                 ))}
               </div>
             </div>
           </div>
-          <div className="w-1/2 bg-gray-100 rounded-2xl flex flex-col items-center justify-center gap-2">
+          <div className="w-1/2 bg-gray-100 rounded-2xl flex flex-col items-center justify-center gap-2 p-4">
             <img
               src="https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Primary_Logo_RGB_Green.png"
               alt=""
@@ -127,7 +177,6 @@ export default async function Dashboard() {
           </div>
         </section>
         <section className="h-1/2">
-        <p className="text-lg font-semibold tracking-tight">Favourite habits</p>
           <Chart />
         </section>
       </section>

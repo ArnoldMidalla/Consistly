@@ -13,8 +13,8 @@ export default function HabitCard({
 }: {
   title: string;
   description: string;
-  time: string;
-  location: string;
+  time?: string;
+  location?: string;
 }) {
   const [done, setDone] = useState(false);
 
@@ -43,14 +43,16 @@ export default function HabitCard({
         </p> */}
         <div className={
             !done ? `text-xs text-gray-500 flex gap-2` : `text-xs text-gray-500 flex gap-2 line-through`}>
+          {time? (
           <div className="flex gap-1">
             <Clock size={13} />
             <p className="font-medium">{time}</p>
-          </div>
+          </div>):null}
+          {location ?(
           <div className="flex gap-1">
             <MapPin size={13} />
-            <p className="font-medium">location</p>
-          </div>
+            <p className="font-medium">{location}</p>
+          </div>) : null}
         </div>
       </div>
     </div>
