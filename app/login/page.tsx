@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { login } from "./actions";
+import { login, loginWithGoogle } from "./actions";
 import Link from "next/link";
 import { toast } from "sonner";
 
@@ -61,17 +61,22 @@ export default function LoginPage() {
           </div>
         </div>
         <div className="w-full flex flex-col gap-2">
-
-        <button
-          className="bg-[#263d3c] text-white w-full py-2 rounded-md flex justify-center items-center font-bold hover:underline hover:cursor-pointer"
-          type="submit" // <-- changed here
+          <button
+            className="bg-[#263d3c] text-white w-full py-2 rounded-md flex justify-center items-center font-bold hover:underline hover:cursor-pointer"
+            type="submit" // <-- changed here
           >
-          Log in
-        </button>
+            Log in
+          </button>
 
-        <p className="text-[#263d3c] text-sm font-semibold">or</p>
-        <Link href='/' className="flex justify-center items-center gap-2 w-full text-sm font-semibold bg-[#f3f3f0] rounded-md py-2 hover:underline"><img src="google-2025-seeklogo.svg" className="w-6" alt="" />Sign in with Google</Link>
-          </div>
+          <p className="text-[#263d3c] text-sm font-semibold">or</p>
+          <Link
+            href="/"
+            className="flex justify-center items-center gap-2 w-full text-sm font-semibold bg-[#f3f3f0] rounded-md py-2 hover:underline"
+          >
+            <img src="google-2025-seeklogo.svg" className="w-6" alt="" />
+            Sign in with Google
+          </Link>
+        </div>
         <p className="text-sm">
           New user?{" "}
           <Link href="/signup" className="hover:underline font-semibold">
