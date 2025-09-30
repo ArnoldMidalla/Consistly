@@ -41,7 +41,8 @@ export default function HabitCard({
         >
           {description}
         </p> */}
-        <div className="text-xs opacity-80 flex gap-2">
+        <div className={
+            !done ? `text-xs text-gray-500 flex gap-2` : `text-xs text-gray-500 flex gap-2 line-through`}>
           <div className="flex gap-1">
             <Clock size={13} />
             <p className="font-medium">{time}</p>
